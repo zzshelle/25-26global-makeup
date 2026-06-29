@@ -86,90 +86,94 @@
   .sec-header h2 { font-family:var(--serif); font-size:21px; font-weight:700; color:var(--forest); }
   .sec-desc { font-size:13.5px; color:var(--ink-mid); line-height:1.8; margin-bottom:1rem; }
 
-  /* ── CONTEXT BOX (teacher's design rationale) ── */
+  /* ── CONTEXT BOX ── */
   .ctx-box {
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 1.25rem;
     border: 1px solid #C8D8CC;
   }
-  /* each col is now full-width stacked */
-  .ctx-header {
-    display: flex;
-    flex-direction: column;
-  }
-  .ctx-col {
-    padding: 0;
-  }
+  .ctx-header { display: block; }
+  .ctx-col { display: block; }
+
   /* coloured label bar */
   .ctx-col-label {
     font-size: 10.5px;
     font-weight: 700;
     letter-spacing: 0.11em;
     text-transform: uppercase;
-    padding: 7px 1.1rem;
+    padding: 6px 1.1rem;
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 0;
   }
   .ctx-col:first-child .ctx-col-label {
     background: var(--sage);
     color: #fff;
-    border-bottom: 1px solid #3A6A50;
   }
   .ctx-col:last-child .ctx-col-label {
     background: var(--gold);
     color: #fff;
-    border-bottom: 1px solid #B07820;
     border-top: 1px solid #C8D8CC;
   }
   .ctx-col-label .dot {
-    width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
-    background: rgba(255,255,255,0.6);
+    width: 5px; height: 5px; border-radius: 50%;
+    background: rgba(255,255,255,0.55); flex-shrink: 0;
   }
-  /* items area */
+
+  /* items list */
   .ctx-col:first-child .ctx-items {
     background: var(--sage-light);
-    padding: 0.75rem 1.1rem;
+    padding: 0.7rem 1.1rem 0.8rem;
   }
   .ctx-col:last-child .ctx-items {
     background: var(--gold-light);
-    padding: 0.75rem 1.1rem;
+    padding: 0.7rem 1.1rem 0.8rem;
   }
-  .ctx-items { display:flex; flex-direction:column; gap:5px; }
+  .ctx-items { display: flex; flex-direction: column; gap: 0; }
   .ctx-item {
     font-size: 13px;
     color: var(--ink-mid);
+    line-height: 1.65;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
     display: flex;
     gap: 8px;
-    line-height: 1.6;
     align-items: flex-start;
+  }
+  .ctx-item:last-child { border-bottom: none; }
+  .ctx-item strong {
+    font-weight: 600;
+    color: var(--forest);
+    line-height: inherit;
   }
   .ctx-col:first-child .ctx-item::before {
     content: '✦';
-    font-size: 9px;
+    font-size: 8px;
     color: var(--sage);
     flex-shrink: 0;
-    margin-top: 4px;
+    margin-top: 5px;
   }
   .ctx-col:last-child .ctx-item::before {
     content: '→';
-    font-size: 11px;
+    font-size: 12px;
     color: var(--gold);
-    flex-shrink: 0;
     font-weight: 700;
-    margin-top: 1px;
+    flex-shrink: 0;
+    margin-top: 2px;
   }
+
+  /* footer */
   .ctx-footer {
-    padding: 0.65rem 1.1rem;
+    padding: 0.6rem 1.1rem;
     background: var(--bg);
     font-size: 12px;
     color: var(--ink-soft);
     font-style: italic;
     border-top: 1px solid #E0E8E2;
+    line-height: 1.6;
   }
-  .ctx-footer strong { font-style:normal; color:var(--ink-mid); font-weight:600; }
+  .ctx-footer strong { font-style: normal; color: var(--ink-mid); font-weight: 600; }
 
   /* PROMPT CARDS */
   .p-card { background:var(--card); border:1px solid #DCE5DE; border-radius:10px; padding:1.4rem 1.5rem; margin-bottom:12px; position:relative; transition:border-color .15s,box-shadow .15s; }
@@ -373,7 +377,7 @@
       <div class="ctx-col">
         <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
         <div class="ctx-items">
-          <div class="ctx-item">國際移動力不只是英語能力或出國旅遊，而是一種<strong>跨越文化與情境的行動與思考能力</strong></div>
+          <div class="ctx-item">國際移動力不只是英語能力或出國旅遊，而是一種跨越文化與情境的行動與思考能力</div>
           <div class="ctx-item">透過與美國、以色列、巴西的真實交流，讓你親身感受到「同一件事，不同背景的人有截然不同的理解」</div>
           <div class="ctx-item">讓你從高中生的視角出發，開始意識到台灣與世界之間的連結與差距</div>
         </div>
@@ -420,9 +424,9 @@
       <div class="ctx-col">
         <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
         <div class="ctx-items">
-          <div class="ctx-item"><strong>旅行世界（Travel the World）：</strong>透過 World Tour 個人報告，認識不同大洲的地理、文化、節慶與時事；與美、以、巴同學交流後，親身感受「同一個文化議題在不同國家的意義完全不同」</div>
-          <div class="ctx-item"><strong>流行文化（Popular Culture）：</strong>以你自己選定的文化主題為核心，練習從多個子題切入，看見文化現象的複雜性，而不只是表面印象</div>
-          <div class="ctx-item"><strong>多元視角（Multi-Perspectives）：</strong>透過數位游牧、都市更新、AI 與語言三個議題，訓練你閱讀不同立場的論點，並用證據支持自己的主張</div>
+          <div class="ctx-item">旅行世界（Travel the World）：透過 World Tour 個人報告，認識不同大洲的地理、文化、節慶與時事；與美、以、巴同學交流後，親身感受「同一個文化議題在不同國家的意義完全不同」</div>
+          <div class="ctx-item">流行文化（Popular Culture）：以你自己選定的文化主題為核心，練習從多個子題切入，看見文化現象的複雜性，而不只是表面印象</div>
+          <div class="ctx-item">多元視角（Multi-Perspectives）：透過數位游牧、都市更新、AI 與語言三個議題，訓練你閱讀不同立場的論點，並用證據支持自己的主張</div>
         </div>
       </div>
       <div class="ctx-col">
@@ -472,10 +476,10 @@
       <div class="ctx-col">
         <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
         <div class="ctx-items">
-          <div class="ctx-item"><strong>World Tour 個人報告：</strong>讓每位同學獨立研究一個國家，練習資料整理、心智圖架構與演講呈現，並且培養對陌生地方的好奇心與研究能力</div>
-          <div class="ctx-item"><strong>Popular Culture 主持與講者：</strong>透過主持人與 Guest Speaker 雙角色，練習規劃知識分享的架構、引導課堂討論，以及用案例說明抽象文化現象的能力</div>
-          <div class="ctx-item"><strong>Multi-Perspectives 辯論：</strong>透過角色扮演（stakeholder）、閱讀多方資料、撰寫立場宣言與辯論框架，訓練論證能力與承受不同意見的心理韌性</div>
-          <div class="ctx-item"><strong>累積式小任務設計：</strong>每個大專題都由講稿、心智圖、簡報、反思等小任務堆砌，目的是讓學習不只停在最後的成果展現，而是過程中持續思考</div>
+          <div class="ctx-item">World Tour 個人報告：讓每位同學獨立研究一個國家，練習資料整理、心智圖架構與演講呈現，並且培養對陌生地方的好奇心與研究能力</div>
+          <div class="ctx-item">Popular Culture 主持與講者：透過主持人與 Guest Speaker 雙角色，練習規劃知識分享的架構、引導課堂討論，以及用案例說明抽象文化現象的能力</div>
+          <div class="ctx-item">Multi-Perspectives 辯論：透過角色扮演（stakeholder）、閱讀多方資料、撰寫立場宣言與辯論框架，訓練論證能力與承受不同意見的心理韌性</div>
+          <div class="ctx-item">累積式小任務設計：每個大專題都由講稿、心智圖、簡報、反思等小任務堆砌，目的是讓學習不只停在最後的成果展現，而是過程中持續思考</div>
         </div>
       </div>
       <div class="ctx-col">
@@ -533,10 +537,10 @@
       <div class="ctx-col">
         <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
         <div class="ctx-items">
-          <div class="ctx-item"><strong>英語口頭表達與即興應對：</strong>透過三個專題的發表與跨國交流，讓你在真實對象面前開口說英文，而不只是背稿</div>
-          <div class="ctx-item"><strong>論點組織與說服能力：</strong>辯論框架與立場宣言的撰寫，訓練你用結構清楚的方式表達自己的立場，並且有證據支撐</div>
-          <div class="ctx-item"><strong>文化比較與視角轉換：</strong>三次跨國交流讓你練習「站在對方的處境想」，不只是介紹台灣，也要真正聽見對方的世界觀</div>
-          <div class="ctx-item"><strong>自主學習與反思：</strong>每個專題都要求你書寫反思，目的是讓你把「做了什麼」轉化成「學到了什麼」</div>
+          <div class="ctx-item">英語口頭表達與即興應對：透過三個專題的發表與跨國交流，讓你在真實對象面前開口說英文，而不只是背稿</div>
+          <div class="ctx-item">論點組織與說服能力：辯論框架與立場宣言的撰寫，訓練你用結構清楚的方式表達自己的立場，並且有證據支撐</div>
+          <div class="ctx-item">文化比較與視角轉換：三次跨國交流讓你練習「站在對方的處境想」，不只是介紹台灣，也要真正聽見對方的世界觀</div>
+          <div class="ctx-item">自主學習與反思：每個專題都要求你書寫反思，目的是讓你把「做了什麼」轉化成「學到了什麼」</div>
         </div>
       </div>
       <div class="ctx-col">
@@ -588,7 +592,7 @@
       <div class="ctx-col">
         <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
         <div class="ctx-items">
-          <div class="ctx-item">這門課把三個專題串在一起，希望你完成後回頭看，會發現它們之間有一個共同的主軸：<strong>讓你有能力在真實的跨文化情境中行動</strong>，而不只是「認識世界」</div>
+          <div class="ctx-item">這門課把三個專題串在一起，希望你完成後回頭看，會發現它們之間有一個共同的主軸：讓你有能力在真實的跨文化情境中行動，而不只是「認識世界」</div>
           <div class="ctx-item">課程刻意設計了「對外呈現」的機會（跨國交流、班級分享），是因為我們相信：當你必須對一個真實的對象說清楚某件事，你才會真正搞懂它</div>
           <div class="ctx-item">每一個設計都有它的取捨——例如三個專題兼顧廣度，但可能犧牲了某些主題的深度探究</div>
         </div>

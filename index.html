@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>補考試題 — 設計你的國際移動力課程</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:    #1C3B2E;
+    --forest-mid:#2D5C44;
+    --sage:      #4A7C5E;
+    --sage-light:#E8F2EC;
+    --gold:      #C9933A;
+    --gold-light:#FBF3E3;
+    --ink:       #2C3A2E;
+    --ink-mid:   #4A5C4E;
+    --ink-soft:  #7A8C7E;
+    --rule:      #C8D8CC;
+    --bg:        #F5F7F3;
+    --card:      #FFFFFF;
+    --sky:       #3A6B8A;
+    --sky-light: #E5F0F7;
+    --warm:      #8A4A3A;
+    --warm-light:#F7EDE8;
+    --alert:     #5A2D82;
+    --alert-light:#F0EAF8;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'Inter', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.7; }
+
+  /* HERO */
+  .hero { background: var(--forest); padding: 4.5rem 2rem 3.5rem; position: relative; overflow: hidden; }
+  .hero-c1 { position:absolute; right:-80px; top:-80px; width:360px; height:360px; border-radius:50%; border:50px solid rgba(201,147,58,0.08); pointer-events:none; }
+  .hero-c2 { position:absolute; right:40px; top:40px; width:180px; height:180px; border-radius:50%; border:20px solid rgba(255,255,255,0.04); pointer-events:none; }
+  .hero-inner { max-width:760px; margin:0 auto; position:relative; }
+  .hero-eyebrow { font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; display:block; }
+  .hero h1 { font-family:var(--serif); font-size:clamp(28px,5vw,50px); font-weight:700; line-height:1.15; color:#fff; margin-bottom:1.25rem; }
+  .hero h1 em { font-style:italic; color:var(--gold); }
+  .hero-intro { font-size:15px; color:rgba(255,255,255,0.72); max-width:580px; line-height:1.85; margin-bottom:2.25rem; }
+  .hero-pills { display:flex; flex-wrap:wrap; gap:8px; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.12); }
+  .pill { font-size:12px; font-weight:500; padding:5px 14px; border-radius:20px; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.75); }
+  .pill.accent { border-color:var(--gold); color:var(--gold); }
+
+  /* AI BANNER */
+  .integrity-banner { background:var(--alert-light); border-left:5px solid var(--alert); padding:1.25rem 2rem; }
+  .integrity-inner { max-width:760px; margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:start; }
+  .integrity-icon { font-size:22px; padding-top:1px; }
+  .integrity-title { font-size:13px; font-weight:700; letter-spacing:0.05em; color:var(--alert); margin-bottom:5px; }
+  .integrity-text { font-size:13px; color:#3A1F5C; line-height:1.75; }
+  .integrity-text strong { font-weight:600; }
+  .integrity-rules { margin-top:8px; list-style:none; display:flex; flex-direction:column; gap:4px; }
+  .integrity-rules li { font-size:12.5px; color:#4A2878; display:flex; gap:7px; line-height:1.5; }
+  .integrity-rules li::before { content:'✗'; color:var(--alert); font-weight:700; flex-shrink:0; }
+
+  /* CONTEXT STRIP */
+  .context-strip { background:var(--gold-light); border-bottom:1px solid #E8D5B0; padding:1.25rem 2rem; }
+  .context-inner { max-width:760px; margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:1rem; align-items:start; }
+  .context-label { font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); padding-top:2px; white-space:nowrap; }
+  .context-text { font-size:13.5px; color:#5C4020; line-height:1.75; }
+  .context-text strong { font-weight:600; color:#3A2810; }
+
+  /* MAIN */
+  .main { max-width:760px; margin:0 auto; padding:0 2rem 5rem; }
+
+  /* THREE COL */
+  .three-col { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:1rem 0; }
+  @media(max-width:580px){ .three-col{ grid-template-columns:1fr; } }
+  .col-card { border-radius:8px; padding:1rem 1.1rem; border:1px solid; }
+  .col-card.ck { background:var(--sky-light); border-color:#B8D4E8; }
+  .col-card.ts { background:var(--sage-light); border-color:#B8D8C4; }
+  .col-card.sk { background:var(--warm-light); border-color:#E8C8C0; }
+  .col-card .col-icon { font-size:20px; margin-bottom:6px; }
+  .col-card h4 { font-size:12px; font-weight:700; letter-spacing:0.04em; margin-bottom:4px; }
+  .col-card.ck h4 { color:var(--sky); }
+  .col-card.ts h4 { color:var(--forest); }
+  .col-card.sk h4 { color:var(--warm); }
+  .col-card p { font-size:12px; color:var(--ink-mid); line-height:1.55; }
+
+  /* SECTION HEADER */
+  .sec-header { margin:3rem 0 1rem; padding-bottom:0.75rem; border-bottom:2px solid var(--forest); display:flex; align-items:baseline; gap:12px; }
+  .sec-header .num { font-family:var(--serif); font-size:13px; font-style:italic; color:var(--sage); font-weight:400; }
+  .sec-header h2 { font-family:var(--serif); font-size:21px; font-weight:700; color:var(--forest); }
+  .sec-desc { font-size:13.5px; color:var(--ink-mid); line-height:1.8; margin-bottom:1rem; }
+
+  /* ── CONTEXT BOX (teacher's design rationale) ── */
+  .ctx-box {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    border: 1px solid #C8D8CC;
+  }
+  /* each col is now full-width stacked */
+  .ctx-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .ctx-col {
+    padding: 0;
+  }
+  /* coloured label bar */
+  .ctx-col-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    padding: 7px 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+  .ctx-col:first-child .ctx-col-label {
+    background: var(--sage);
+    color: #fff;
+    border-bottom: 1px solid #3A6A50;
+  }
+  .ctx-col:last-child .ctx-col-label {
+    background: var(--gold);
+    color: #fff;
+    border-bottom: 1px solid #B07820;
+    border-top: 1px solid #C8D8CC;
+  }
+  .ctx-col-label .dot {
+    width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(255,255,255,0.6);
+  }
+  /* items area */
+  .ctx-col:first-child .ctx-items {
+    background: var(--sage-light);
+    padding: 0.75rem 1.1rem;
+  }
+  .ctx-col:last-child .ctx-items {
+    background: var(--gold-light);
+    padding: 0.75rem 1.1rem;
+  }
+  .ctx-items { display:flex; flex-direction:column; gap:5px; }
+  .ctx-item {
+    font-size: 13px;
+    color: var(--ink-mid);
+    display: flex;
+    gap: 8px;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .ctx-col:first-child .ctx-item::before {
+    content: '✦';
+    font-size: 9px;
+    color: var(--sage);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .ctx-col:last-child .ctx-item::before {
+    content: '→';
+    font-size: 11px;
+    color: var(--gold);
+    flex-shrink: 0;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .ctx-footer {
+    padding: 0.65rem 1.1rem;
+    background: var(--bg);
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-style: italic;
+    border-top: 1px solid #E0E8E2;
+  }
+  .ctx-footer strong { font-style:normal; color:var(--ink-mid); font-weight:600; }
+
+  /* PROMPT CARDS */
+  .p-card { background:var(--card); border:1px solid #DCE5DE; border-radius:10px; padding:1.4rem 1.5rem; margin-bottom:12px; position:relative; transition:border-color .15s,box-shadow .15s; }
+  .p-card:hover { border-color:var(--sage); box-shadow:0 3px 14px rgba(28,59,46,0.07); }
+  .p-card.antiAI { border-left:3px solid var(--alert); }
+  .p-tag { display:inline-flex; align-items:center; gap:4px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 9px; border-radius:4px; margin-bottom:11px; }
+  .tag-know  { background:var(--sky-light);   color:var(--sky); }
+  .tag-task  { background:var(--sage-light);   color:var(--forest); }
+  .tag-skill { background:var(--warm-light);   color:var(--warm); }
+  .tag-vision{ background:var(--gold-light);   color:#7A5520; }
+  .tag-synth { background:#F0EAF8; color:#5A3A8A; }
+  .proof-note { display:flex; gap:7px; align-items:flex-start; background:var(--alert-light); border-radius:6px; padding:7px 10px; margin-bottom:10px; font-size:11.5px; color:var(--alert); line-height:1.55; }
+  .proof-note::before { content:'🔒'; flex-shrink:0; font-size:12px; }
+  .p-q { font-size:15.5px; color:var(--ink); line-height:1.75; margin-bottom:10px; }
+  .p-q strong { font-weight:600; color:var(--forest); }
+  .p-sub { list-style:none; margin:8px 0 10px; display:flex; flex-direction:column; gap:5px; }
+  .p-sub li { display:flex; gap:8px; font-size:14px; color:var(--ink-mid); line-height:1.6; }
+  .p-sub li::before { content:'→'; color:var(--sage); flex-shrink:0; font-weight:600; margin-top:1px; }
+  .p-guide { font-size:12px; color:var(--ink-soft); line-height:1.6; padding:7px 10px; border-left:2px solid var(--rule); font-style:italic; background:var(--bg); border-radius:0 5px 5px 0; margin-top:8px; }
+  .p-guide em { font-style:normal; font-weight:500; color:var(--ink-mid); }
+  .wc-badge { position:absolute; top:1.1rem; right:1.25rem; font-size:10px; color:var(--ink-soft); background:var(--bg); border:1px solid var(--rule); padding:2px 8px; border-radius:10px; white-space:nowrap; }
+
+  /* DIVIDER */
+  .divider { height:1px; background:var(--rule); margin:2rem 0; }
+
+  /* SUBMIT */
+  .submit-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:1.5rem 0; }
+  @media(max-width:540px){ .submit-grid{ grid-template-columns:1fr; } }
+  .s-item { background:var(--card); border:1px solid #DCE5DE; border-radius:8px; padding:1rem 1.1rem; display:flex; gap:10px; }
+  .s-icon { font-size:18px; flex-shrink:0; margin-top:2px; }
+  .s-item h4 { font-size:12.5px; font-weight:600; color:var(--forest); margin-bottom:3px; }
+  .s-item p  { font-size:12px; color:var(--ink-mid); line-height:1.5; }
+
+  /* RUBRIC */
+  .rubric { background:var(--forest); border-radius:10px; overflow:hidden; margin-top:2.5rem; }
+  .rubric-head { padding:1.1rem 1.5rem; display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(255,255,255,0.1); }
+  .rubric-head h3 { font-family:var(--serif); font-size:17px; color:#fff; font-weight:700; }
+  .rh-dot { width:8px; height:8px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+  .rubric-body { padding:0.25rem 0; }
+  .r-row { display:grid; grid-template-columns:2fr 3fr auto; gap:1rem; align-items:center; padding:0.8rem 1.5rem; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .r-row:last-child { border-bottom:none; }
+  .r-cat { font-size:13.5px; font-weight:500; color:rgba(255,255,255,0.9); }
+  .r-desc { font-size:12px; color:rgba(255,255,255,0.5); line-height:1.5; }
+  .r-pts { font-family:var(--serif); font-size:22px; font-weight:700; color:var(--gold); text-align:right; }
+  .rubric-foot { background:var(--gold); padding:0.9rem 1.5rem; display:flex; justify-content:space-between; align-items:center; }
+  .rubric-foot .fl { font-size:13px; font-weight:600; color:#fff; }
+  .rubric-foot .fr { font-family:var(--serif); font-size:28px; font-weight:700; color:#fff; }
+
+  /* CLOSING */
+  .closing { background:var(--forest); border-radius:10px; padding:1.75rem 2rem; margin-top:2rem; }
+  .closing p { font-family:var(--serif); font-size:16px; font-style:italic; color:rgba(255,255,255,0.82); line-height:1.9; }
+  .closing p strong { font-style:normal; color:var(--gold); font-weight:600; }
+
+  @media print {
+    .hero-c1, .hero-c2 { display:none; }
+    body { background:white; }
+    .p-card, .ctx-box { break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-c1"></div><div class="hero-c2"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow">補考試題 · 國際移動力課程</span>
+    <h1>如果由你來設計，<br>這門課應該<em>長什麼樣子？</em></h1>
+    <p class="hero-intro">你這學期修習了「國際移動力」——學習在不同語言、文化與陌生環境中思考、溝通與合作的能力。現在換你來說：這樣的能力，應該透過什麼樣的課程內容、任務與技能來培養？</p>
+    <div class="hero-pills">
+      <span class="pill accent">個人書面作業</span>
+      <span class="pill">高二校定必修</span>
+      <span class="pill">800–1,000 字</span>
+      <span class="pill">及格：70 / 100 分</span>
+      <span class="pill">中文或英文均可</span>
+    </div>
+  </div>
+</div>
+
+<div class="integrity-banner">
+  <div class="integrity-inner">
+    <div class="integrity-icon">⚠️</div>
+    <div>
+      <p class="integrity-title">作答誠信聲明 Academic Integrity</p>
+      <p class="integrity-text">本試題需要你的<strong>真實個人經驗、自己的觀察與你自己的判斷</strong>。以下行為視為違規，將以零分計：</p>
+      <ul class="integrity-rules">
+        <li>使用 ChatGPT、Claude、Gemini 或任何 AI 工具生成答案或段落</li>
+        <li>複製貼上網路資料或他人作品，即使有改寫亦不得接受</li>
+        <li>多人共用相同答案（尤其是「你的親身經驗」題）</li>
+      </ul>
+      <p class="integrity-text" style="margin-top:8px;">✓ 允許：查閱課堂講義、你自己的筆記、心智圖，以協助回憶課程內容。</p>
+      <div style="margin-top:12px;background:rgba(90,45,130,0.12);border-radius:6px;padding:9px 12px;">
+        <p style="font-size:13px;font-weight:700;color:var(--alert);margin-bottom:3px;">評分的核心問題只有一個：</p>
+        <p style="font-size:13.5px;color:#3A1F5C;line-height:1.7;">這份答案裡，<strong>有沒有只有這個學生才知道的事？</strong><br>
+        優秀答案有；及格答案部分有；不及格答案幾乎沒有。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="context-strip">
+  <div class="context-inner">
+    <span class="context-label">你的任務</span>
+    <p class="context-text">以<strong>課程設計者</strong>的身份回答以下問題：根據你對「國際移動力」的理解，以及你作為一個學習者的親身經驗，提出你認為這門課應該包含哪些<strong>知識內容、任務設計與技能目標</strong>。沒有標準答案，但有<strong>有說服力的提案與缺乏思考的提案</strong>之分。</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div style="margin-top:2rem;">
+    <p style="font-size:12px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:0.75rem;">你的提案需涵蓋三個維度</p>
+    <div class="three-col">
+      <div class="col-card ck"><div class="col-icon">🌍</div><h4>知識內容 Content Knowledge</h4><p>學生應該學習哪些主題、議題或全球現象？</p></div>
+      <div class="col-card ts"><div class="col-icon">📋</div><h4>課堂任務 Tasks</h4><p>學生實際要做什麼——創作、調查、交流、辯論？</p></div>
+      <div class="col-card sk"><div class="col-icon">🛠</div><h4>技能目標 Skills</h4><p>修完這門課，學生帶走了什麼能力？</p></div>
+    </div>
+  </div>
+
+  <!-- 題目總覽 -->
+  <div style="background:var(--card);border:1px solid #DCE5DE;border-radius:10px;overflow:hidden;margin:1.5rem 0;">
+    <div style="background:var(--forest);padding:0.75rem 1.25rem;display:flex;align-items:center;gap:10px;">
+      <span style="font-family:var(--serif);font-size:16px;font-weight:700;color:#fff;">本試題共 11 道題，分為五個部分</span>
+      <span style="margin-left:auto;font-size:12px;color:rgba(255,255,255,0.55);">🔒 = 需個人親身經驗，共 6 題</span>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr style="background:var(--bg);border-bottom:1px solid #DCE5DE;">
+          <th style="text-align:left;padding:0.6rem 1.25rem;color:var(--ink-soft);font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;width:22%;">部分</th>
+          <th style="text-align:left;padding:0.6rem 1rem;color:var(--ink-soft);font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;">題目</th>
+          <th style="text-align:center;padding:0.6rem 1rem;color:var(--ink-soft);font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;width:12%;">字數</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #F0F4F1;">
+          <td style="padding:0.65rem 1.25rem;color:var(--sage);font-weight:600;" rowspan="2">第一部分<br><span style="font-weight:400;color:var(--ink-soft);">定義與缺口</span></td>
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q1 🔒 你對「國際移動力」的定義（用具體情境說明）</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 80 字</td>
+        </tr>
+        <tr style="border-bottom:1px solid #E0E8E2;background:var(--sage-light);">
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q2 🔒 你觀察到台灣高中生最缺乏的一件事</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 80 字</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F0F4F1;">
+          <td style="padding:0.65rem 1.25rem;color:var(--sky);font-weight:600;" rowspan="2">第二部分<br><span style="font-weight:400;color:var(--ink-soft);">知識內容</span></td>
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q3 你提出的 2–3 個課程知識主題</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 150 字</td>
+        </tr>
+        <tr style="border-bottom:1px solid #E0E8E2;background:#EEF5FA;">
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q4 🔒 一個讓你不知道怎麼回應的跨國交流時刻</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 80 字</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F0F4F1;">
+          <td style="padding:0.65rem 1.25rem;color:var(--forest);font-weight:600;" rowspan="3">第三部分<br><span style="font-weight:400;color:var(--ink-soft);">課堂任務</span></td>
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q5 你設計的一個核心任務（具體說明形式、時間、受眾）</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 180 字</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F0F4F1;background:var(--sage-light);">
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q6 🔒 根據你這學期的實際經驗：累積式 vs. 大型專題</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 100 字</td>
+        </tr>
+        <tr style="border-bottom:1px solid #E0E8E2;">
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q7 你選擇的成果受眾，以及理由</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 80 字</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F0F4F1;">
+          <td style="padding:0.65rem 1.25rem;color:var(--warm);font-weight:600;" rowspan="2">第四部分<br><span style="font-weight:400;color:var(--ink-soft);">技能目標</span></td>
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q8 你選的三項最重要技能，以及課程怎麼培養它</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 120 字</td>
+        </tr>
+        <tr style="border-bottom:1px solid #E0E8E2;background:var(--warm-light);">
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q9 🔒 這學期你在課堂上練不到的那項技能（舉具體情境）</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 80 字</td>
+        </tr>
+        <tr>
+          <td style="padding:0.65rem 1.25rem;color:var(--alert);font-weight:600;" rowspan="2">第五部分<br><span style="font-weight:400;color:var(--ink-soft);">整合</span></td>
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q10 一段話說完你的課程願景</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 120 字</td>
+        </tr>
+        <tr style="background:#F5F0FC;">
+          <td style="padding:0.65rem 1rem;color:var(--ink);">Q11 🔒 你的設計最大的取捨，以及和本課的最大差異</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--ink-soft);">約 80 字</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr style="background:var(--forest);">
+          <td colspan="2" style="padding:0.65rem 1.25rem;color:rgba(255,255,255,0.8);font-size:12px;">總計 11 道題 · 全文建議 800–1,000 字</td>
+          <td style="padding:0.65rem 1rem;text-align:center;color:var(--gold);font-weight:700;font-size:15px;font-family:var(--serif);">100 分</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- ══════════════════════════════════════════ -->
+  <div class="sec-header">
+    <span class="num">第一部分</span>
+    <h2>你怎麼理解「國際移動力」？</h2>
+    <span style="margin-left:auto;font-size:11.5px;color:var(--ink-soft);font-weight:500;white-space:nowrap;">Q1–Q2 · 2 道題</span>
+  </div>
+  <p class="sec-desc">在設計課程之前，先說清楚你在為什麼而設計。</p>
+
+  <div class="ctx-box">
+    <div class="ctx-header">
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
+        <div class="ctx-items">
+          <div class="ctx-item">國際移動力不只是英語能力或出國旅遊，而是一種<strong>跨越文化與情境的行動與思考能力</strong></div>
+          <div class="ctx-item">透過與美國、以色列、巴西的真實交流，讓你親身感受到「同一件事，不同背景的人有截然不同的理解」</div>
+          <div class="ctx-item">讓你從高中生的視角出發，開始意識到台灣與世界之間的連結與差距</div>
+        </div>
+      </div>
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>如果是你來設計，你會怎麼做？</div>
+        <div class="ctx-items">
+          <div class="ctx-item">你如何向別人解釋「國際移動力」——用一個真實情境，而不是一個定義</div>
+          <div class="ctx-item">你認為台灣高中生目前最缺乏的是哪一塊？這個觀察是從你自己或你身邊的人而來的</div>
+        </div>
+      </div>
+    </div>
+    <div class="ctx-footer">這部分沒有標準答案。評量的是你有沒有認真思考這個概念，而不是你的答案是否和老師一致。</div>
+  </div>
+
+  <div class="p-card antiAI">
+    <span class="wc-badge">約 80 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q1</span><span class="p-tag tag-vision">你的定義</span>
+    <div class="proof-note">此題需來自你自己的思考，AI 無法代替你的判斷。評分關鍵：這裡有沒有只有你才想得到的畫面或情境？</div>
+    <p class="p-q">用你自己的話說：「國際移動力」對你而言是什麼？不是教科書定義，而是——一個具備這種能力的人，在現實生活中會<strong>做什麼不一樣的事</strong>？請用一個你能想像的具體情境來說明。</p>
+    <p class="p-guide">請避免抽象語言如「了解不同文化」或「有開放心態」。<em>用場景說話</em>：這個人在做什麼？面對什麼？怎麼應對？</p>
+  </div>
+
+  <div class="p-card antiAI">
+    <span class="wc-badge">約 80 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q2</span><span class="p-tag tag-vision">你看到的缺口</span>
+    <div class="proof-note">請根據你自己的觀察作答，不接受泛論。評分關鍵：你說的「缺口」，是你自己看到的還是任何人都能說的？</div>
+    <p class="p-q">以你自己為例，或以你身邊同學為觀察對象：台灣高中生目前在「國際移動力」上，<strong>最缺乏的一件事</strong>是什麼？是知識不足？語言障礙？沒有機會接觸不同文化？還是你觀察到另一個問題？</p>
+    <p class="p-guide">只選一個最主要的缺口，不要列清單。你的診斷愈具體，後面的課程提案就愈有說服力。</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 第二部分 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="sec-header">
+    <span class="num">第二部分</span>
+    <h2>知識內容 — 學生應該學什麼？</h2>
+    <span style="margin-left:auto;font-size:11.5px;color:var(--ink-soft);font-weight:500;white-space:nowrap;">Q3–Q4 · 2 道題</span>
+  </div>
+  <p class="sec-desc">每一門課的核心都是知識：學生透過課程接觸哪些主題、問題與觀點。這個部分請你做出選擇並說明理由。</p>
+
+  <div class="ctx-box">
+    <div class="ctx-header">
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
+        <div class="ctx-items">
+          <div class="ctx-item"><strong>旅行世界（Travel the World）：</strong>透過 World Tour 個人報告，認識不同大洲的地理、文化、節慶與時事；與美、以、巴同學交流後，親身感受「同一個文化議題在不同國家的意義完全不同」</div>
+          <div class="ctx-item"><strong>流行文化（Popular Culture）：</strong>以你自己選定的文化主題為核心，練習從多個子題切入，看見文化現象的複雜性，而不只是表面印象</div>
+          <div class="ctx-item"><strong>多元視角（Multi-Perspectives）：</strong>透過數位游牧、都市更新、AI 與語言三個議題，訓練你閱讀不同立場的論點，並用證據支持自己的主張</div>
+        </div>
+      </div>
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>如果是你來設計，你會怎麼做？</div>
+        <div class="ctx-items">
+          <div class="ctx-item">你認為哪些主題最能讓高中生真正感受到「國際視野」的必要性？</div>
+          <div class="ctx-item">你會如何確保課程納入多元文化觀點，而不只是台灣或西方的角度？</div>
+          <div class="ctx-item">你這學期與外國同學交流時，有哪一刻讓你意識到自己的知識準備不足？</div>
+        </div>
+      </div>
+    </div>
+    <div class="ctx-footer">這學期選擇這三個主題，是因為它們分別對應「認識世界」、「理解文化現象」與「面對多元觀點」三個層次。你的提案也需要有類似的層次感，而不只是主題的堆疊。</div>
+  </div>
+
+  <div class="p-card">
+    <span class="wc-badge">約 150 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q3</span><span class="p-tag tag-know">主題選擇</span>
+    <p class="p-q">提出你認為應該放入國際移動力課程的<strong>兩到三個知識主題</strong>。針對每個主題，說明：</p>
+    <ul class="p-sub">
+      <li>這個主題是什麼？為什麼它和「國際移動力」有關？</li>
+      <li>學生可以透過什麼管道（閱讀、影片、交流）來建立這個主題的知識？</li>
+      <li>對一個從未出過國的高中生而言，這個主題為什麼仍然有意義？</li>
+    </ul>
+    <p class="p-guide">可能的方向：移民與身分認同、跨國職場與科技、不同國家的氣候政策、全球青年運動⋯⋯<em>你不需要選這些</em>，選你真正覺得重要的。</p>
+  </div>
+
+  <div class="p-card antiAI">
+    <span class="wc-badge">約 80 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q4</span><span class="p-tag tag-know">多元視角</span>
+    <div class="proof-note">此題需結合你在本課交流活動的親身觀察，不接受純粹假設性回答。評分關鍵：你說的那個時刻，老師能不能從你的描述裡「看見」它發生？</div>
+    <p class="p-q">回想本學期與美國、以色列或巴西同學交流的經驗：有沒有哪一刻，你發現對方對某件事的看法和你<strong>完全不同</strong>，甚至讓你一時不知道怎麼回應？請描述那個時刻，並說明它讓你覺得課程應該加入什麼樣的內容或準備。</p>
+    <p class="p-guide"><em>這題要求你寫出一個具體的交流場景。</em>AI 不知道你實際交流時發生了什麼事——這正是你的個人輸入不可取代的地方。</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 第三部分 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="sec-header">
+    <span class="num">第三部分</span>
+    <h2>課堂任務 — 學生應該做什麼？</h2>
+    <span style="margin-left:auto;font-size:11.5px;color:var(--ink-soft);font-weight:500;white-space:nowrap;">Q5–Q7 · 3 道題</span>
+  </div>
+  <p class="sec-desc">有了知識還不夠，課程需要讓學生去實踐。這個部分請你設計具體的學習任務。</p>
+
+  <div class="ctx-box">
+    <div class="ctx-header">
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
+        <div class="ctx-items">
+          <div class="ctx-item"><strong>World Tour 個人報告：</strong>讓每位同學獨立研究一個國家，練習資料整理、心智圖架構與演講呈現，並且培養對陌生地方的好奇心與研究能力</div>
+          <div class="ctx-item"><strong>Popular Culture 主持與講者：</strong>透過主持人與 Guest Speaker 雙角色，練習規劃知識分享的架構、引導課堂討論，以及用案例說明抽象文化現象的能力</div>
+          <div class="ctx-item"><strong>Multi-Perspectives 辯論：</strong>透過角色扮演（stakeholder）、閱讀多方資料、撰寫立場宣言與辯論框架，訓練論證能力與承受不同意見的心理韌性</div>
+          <div class="ctx-item"><strong>累積式小任務設計：</strong>每個大專題都由講稿、心智圖、簡報、反思等小任務堆砌，目的是讓學習不只停在最後的成果展現，而是過程中持續思考</div>
+        </div>
+      </div>
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>如果是你來設計，你會怎麼做？</div>
+        <div class="ctx-items">
+          <div class="ctx-item">你覺得什麼樣的任務形式，最能讓你全力投入？個人作業、小組合作、還是真實的對外展演？</div>
+          <div class="ctx-item">你認為「累積式小任務」和「一個大型專題」各有什麼優缺點？你會怎麼取捨？</div>
+          <div class="ctx-item">你設計的任務，成果要呈現給誰？讓哪種受眾看，對你的準備動機影響最大？</div>
+        </div>
+      </div>
+    </div>
+    <div class="ctx-footer"><strong>設計這些任務的初衷</strong>是讓每位同學都有真實「開口說話」與「公開呈現」的機會，同時透過書寫反思沉澱學習。你的提案不需要複製這個結構，但需要說明你的選擇為什麼有效。</div>
+  </div>
+
+  <div class="p-card">
+    <span class="wc-badge">約 180 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q5</span><span class="p-tag tag-task">核心任務設計</span>
+    <p class="p-q">描述一個你認為可以成為這門課<strong>核心的任務或專題</strong>，要具體到讓另一個同學讀完就能知道自己要做什麼。請說明：</p>
+    <ul class="p-sub">
+      <li>任務是什麼？學生要產出、展演或完成什麼？</li>
+      <li>個人作業、配對或小組——你選哪種形式？為什麼這種形式最適合？</li>
+      <li>這個任務會涉及教室以外的人或資源嗎？如果會，是誰、如何進行？</li>
+      <li>這個任務在學期中大概需要多少時間？</li>
+    </ul>
+    <p class="p-guide"><em>「討論全球議題」</em>不夠具體。<em>「每組選擇台灣與另一個國家之間真實存在的文化誤解，訪談一位有跨國經驗的人，整理成5分鐘口頭報告」</em>才夠具體。</p>
+  </div>
+
+  <div class="p-card antiAI">
+    <span class="wc-badge">約 100 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q6</span><span class="p-tag tag-task">累積式 vs. 大型專題</span>
+    <div class="proof-note">此題要求你反思自己這學期的學習經驗，請根據真實感受作答。評分關鍵：你提到的任何一個任務，你能說出它具體的名稱或細節嗎？</div>
+    <p class="p-q">回想你這學期實際完成的學習任務——World Tour 個人報告、Popular Culture 主持與講者、Multi-Perspectives 辯論⋯⋯你覺得<strong>任務的分量與頻率</strong>對你的學習有什麼影響？如果你來設計，你會選擇「一學期一個大型專題」、「多個小任務逐步堆疊」，還是另一種組合？說明你的選擇理由，以及這樣安排對同齡同學的優缺點。</p>
+    <p class="p-guide">沒有正確答案，但你的理由需要根植於你自己的學習經驗，不是泛論。</p>
+  </div>
+
+  <div class="p-card">
+    <span class="wc-badge">約 80 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q7</span><span class="p-tag tag-task">真實受眾</span>
+    <p class="p-q">你設計的課程任務，<strong>成果呈現給誰看？</strong>只有老師？全班同學？其他學校的學生？台灣以外的人？你選擇這個受眾的理由是什麼？受眾的存在如何影響學生準備的品質？</p>
+    <p class="p-guide">一個真實的、課室外的受眾，往往能大幅提升學生的投入程度。解釋為什麼你選擇的受眾，最符合這門課的核心目標。</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 第四部分 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="sec-header">
+    <span class="num">第四部分</span>
+    <h2>技能目標 — 學生應該練習什麼能力？</h2>
+    <span style="margin-left:auto;font-size:11.5px;color:var(--ink-soft);font-weight:500;white-space:nowrap;">Q8–Q9 · 2 道題</span>
+  </div>
+  <p class="sec-desc">一門好的課程會改變學生。這個部分請你說清楚那些改變應該是什麼，並且誠實面對培養這些能力有多難。</p>
+
+  <div class="ctx-box">
+    <div class="ctx-header">
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
+        <div class="ctx-items">
+          <div class="ctx-item"><strong>英語口頭表達與即興應對：</strong>透過三個專題的發表與跨國交流，讓你在真實對象面前開口說英文，而不只是背稿</div>
+          <div class="ctx-item"><strong>論點組織與說服能力：</strong>辯論框架與立場宣言的撰寫，訓練你用結構清楚的方式表達自己的立場，並且有證據支撐</div>
+          <div class="ctx-item"><strong>文化比較與視角轉換：</strong>三次跨國交流讓你練習「站在對方的處境想」，不只是介紹台灣，也要真正聽見對方的世界觀</div>
+          <div class="ctx-item"><strong>自主學習與反思：</strong>每個專題都要求你書寫反思，目的是讓你把「做了什麼」轉化成「學到了什麼」</div>
+        </div>
+      </div>
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>如果是你來設計，你會怎麼做？</div>
+        <div class="ctx-items">
+          <div class="ctx-item">你認為這學期最應該優先培養的三項技能是什麼？你的選擇跟課程的設計方向一樣嗎？還是你有不同的看法？</div>
+          <div class="ctx-item">哪一項技能你覺得這學期課堂環境最難真正練到？為什麼？</div>
+        </div>
+      </div>
+    </div>
+    <div class="ctx-footer">這門課在技能目標上刻意選擇「寬度」而非「深度」——讓你同時接觸口語、書寫、辯論、交流等多種形式。你認為這樣的設計合理嗎？還是你認為應該聚焦在更少的技能上，但練得更深？</div>
+  </div>
+
+  <div class="p-card">
+    <span class="wc-badge">約 120 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q8</span><span class="p-tag tag-skill">技能優先序</span>
+    <p class="p-q">從以下清單中，選出你認為對高中生最重要的<strong>三項技能</strong>。針對每一項，說明：為什麼選它，以及你設計的課程<strong>怎麼培養它</strong>——不只是「讓學生接觸它」，而是真正讓學生練習和成長。</p>
+    <ul class="p-sub">
+      <li>跨文化溝通（能針對不同對象調整自己的表達方式）</li>
+      <li>視角轉換（真正理解一個你不同意的立場）</li>
+      <li>跨語言或跨媒體的資料蒐集與判讀能力</li>
+      <li>用第二語言表達與捍衛自己的立場</li>
+      <li>與不同背景的人合作的能力</li>
+      <li>在陌生或模糊的情境中保持行動力</li>
+      <li>你認為清單中沒有列出、但更重要的技能——請命名並說明</li>
+    </ul>
+  </div>
+
+  <div class="p-card antiAI">
+    <span class="wc-badge">約 80 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q9</span><span class="p-tag tag-skill">最難的那一個</span>
+    <div class="proof-note">此題需連結你在本課的親身學習經驗，請舉出具體例子。評分關鍵：你說的那個課堂情境，是只有你才知道的，還是任何學生都能複製的說法？</div>
+    <p class="p-q">你選的三項技能中，哪一項你覺得<strong>自己在這學期進步最有限</strong>——或最難在課堂環境中真正練到？請舉出一個這學期課堂裡的具體情境（一堂課、一個任務、一次交流），說明你當時遭遇的困難，並分析這種技能為什麼很難只靠課堂習得。</p>
+    <p class="p-guide"><em>這題要求你寫出一個你自己經歷過的課堂情境。</em>越具體，越能看出你真實的學習反思，而不是泛泛而談。</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- 第五部分 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="sec-header">
+    <span class="num">第五部分</span>
+    <h2>整合 — 你的課程願景</h2>
+    <span style="margin-left:auto;font-size:11.5px;color:var(--ink-soft);font-weight:500;white-space:nowrap;">Q10–Q11 · 2 道題</span>
+  </div>
+  <p class="sec-desc">把前四個部分的思考整合成一個完整的提案。</p>
+
+  <div class="ctx-box">
+    <div class="ctx-header">
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>這學期的課這樣設計——我們希望你學到</div>
+        <div class="ctx-items">
+          <div class="ctx-item">這門課把三個專題串在一起，希望你完成後回頭看，會發現它們之間有一個共同的主軸：<strong>讓你有能力在真實的跨文化情境中行動</strong>，而不只是「認識世界」</div>
+          <div class="ctx-item">課程刻意設計了「對外呈現」的機會（跨國交流、班級分享），是因為我們相信：當你必須對一個真實的對象說清楚某件事，你才會真正搞懂它</div>
+          <div class="ctx-item">每一個設計都有它的取捨——例如三個專題兼顧廣度，但可能犧牲了某些主題的深度探究</div>
+        </div>
+      </div>
+      <div class="ctx-col">
+        <div class="ctx-col-label"><span class="dot"></span>如果是你來設計，你會怎麼做？</div>
+        <div class="ctx-items">
+          <div class="ctx-item">你的課程主軸是什麼？修完的學生，會變成什麼樣的人？</div>
+          <div class="ctx-item">你的設計最大的取捨是什麼？你選擇了什麼，也就放棄了什麼？</div>
+          <div class="ctx-item">你的提案和這學期這門課的設計，最大的不同在哪裡？</div>
+        </div>
+      </div>
+    </div>
+    <div class="ctx-footer">這最後一部分是這份補考的核心：我們想看到的不是一份「完美的課程計畫」，而是一份真正屬於你的、有自己觀點的設計提案。</div>
+  </div>
+
+  <div class="p-card">
+    <span class="wc-badge">約 120 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q10</span><span class="p-tag tag-synth">一段話說完你的課程</span>
+    <p class="p-q">寫一段話，描述你理想中的國際移動力課程——包含你選擇的知識主題、核心任務、關鍵技能，以及一個修完這門課的學生，會變成什麼樣的人。這段話要夠有說服力，讓一個從來沒聽過這門課的同學看完之後，<strong>會想修</strong>。</p>
+    <p class="p-guide">用招生說明或給下一屆同學的一封信的語氣寫。要聽起來像一個真實的人在說話，不像任務清單或使命宣言。</p>
+  </div>
+
+  <div class="p-card antiAI">
+    <span class="wc-badge">約 80 字</span>
+    <span style="display:inline-block;background:var(--forest);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;letter-spacing:0.04em;vertical-align:middle;">Q11</span><span class="p-tag tag-synth">一個誠實的取捨</span>
+    <div class="proof-note">此題需結合你對自身學習風格的真實了解，不接受泛論式回答。評分關鍵：你說的取捨，是你自己做的選擇，還是任何人都能說出口的「深度比廣度重要」？</div>
+    <p class="p-q">你的提案做得不好或照顧不到的地方是什麼？請誠實說出這個限制，並說明<strong>你為什麼仍然做出這樣的選擇</strong>。同時，你的設計和這學期這門課最大的不同在哪裡？你認為你的版本解決了什麼，但可能又失去了什麼？</p>
+    <p class="p-guide">知道自己設計的邊界，並且能說明為什麼仍然值得，本身就是國際移動力的核心能力之一：在不完美的條件下做出有根據的判斷。</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <p style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--forest);margin-bottom:0.75rem;">繳交說明</p>
+  <div class="submit-grid">
+    <div class="s-item"><span class="s-icon">📄</span><div><h4>格式</h4><p>Google 文件或 Word。每部分請標明標題（第一部分、第二部分⋯）。字體 12pt。</p></div></div>
+    <div class="s-item"><span class="s-icon">📏</span><div><h4>字數</h4><p>全文 800–1,000 字（含中英文）。每題結尾可附字數，非必須。</p></div></div>
+    <div class="s-item"><span class="s-icon">🌐</span><div><h4>語言</h4><p>中文、英文或自然混用皆可。用你思考最清晰的語言寫。</p></div></div>
+    <div class="s-item"><span class="s-icon">📅</span><div><h4>截止日期</h4><p>收到此試題後 7 天內，透過 Google Classroom 繳交。</p></div></div>
+  </div>
+
+  <div class="rubric">
+    <div class="rubric-head"><div class="rh-dot"></div><h3>評分標準 Scoring Rubric</h3></div>
+    <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);">
+      <p style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;">評分核心原則</p>
+      <p style="font-size:15px;font-family:var(--serif);font-style:italic;color:#fff;line-height:1.75;">這份答案裡，<strong style="font-style:normal;color:var(--gold);">有沒有只有這個學生才知道的事？</strong></p>
+      <p style="font-size:12.5px;color:rgba(255,255,255,0.6);margin-top:5px;line-height:1.6;">優秀答案有——具體場景、真實時刻、個人判斷；及格答案部分有；不及格答案幾乎沒有。每一個評分維度，都回到這個問題。</p>
+    </div>
+    <div class="rubric-body">
+      <div class="r-row"><span class="r-cat">第一部分 · 定義與缺口</span><span class="r-desc">定義具體有畫面；缺口的觀察來自真實情境，非泛論</span><span class="r-pts">15</span></div>
+      <div class="r-row"><span class="r-cat">第二部分 · 知識內容</span><span class="r-desc">主題選擇有說服力；多元視角題含真實交流情境描述</span><span class="r-pts">20</span></div>
+      <div class="r-row"><span class="r-cat">第三部分 · 任務設計</span><span class="r-desc">任務具體可執行；任務結構與受眾的選擇有清楚理由</span><span class="r-pts">25</span></div>
+      <div class="r-row"><span class="r-cat">第四部分 · 技能目標</span><span class="r-desc">選擇有說服力；「最難的那一個」含真實課堂情境舉例</span><span class="r-pts">25</span></div>
+      <div class="r-row"><span class="r-cat">第五部分 · 整合</span><span class="r-desc">願景完整且有說服力；誠實說明與本課設計的異同</span><span class="r-pts">15</span></div>
+    </div>
+    <div class="rubric-foot"><span class="fl">總分 · 及格標準：70 / 100</span><span class="fr">100</span></div>
+  </div>
+
+  <div class="closing">
+    <p>最認真思考「學習應該長什麼樣子」的學生，往往也是最清楚自己在學什麼的學生。<strong>我們期待讀到你真正思考過的提案</strong>——不是一份完美的答案，而是一份屬於你的、誠實的設計。</p>
+  </div>
+
+</div>
+</body>
+</html>
